@@ -37,7 +37,12 @@ export const registerUser = async (req, res) => {
                 })
 
                 const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET)
-                res.cookie('token', token)
+                res.cookie('token', token, {
+                    httpOnly: true,
+                    secure: true, // only send over HTTPS
+                    sameSite: 'None', // needed for cross-origin
+                    maxAge: 3600000 // 1 hour
+                })
                 res.json({ success: true, message: "User created successfully", user })
             })
         })
@@ -69,7 +74,12 @@ export const loginUser = async (req, res) => {
         bcrypt.compare(password, user.password, async (err, result) => {
             if (result) {
                 const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET)
-                res.cookie('token', token)
+                res.cookie('token', token, {
+                    httpOnly: true,
+                    secure: true, // only send over HTTPS
+                    sameSite: 'None', // needed for cross-origin
+                    maxAge: 3600000 // 1 hour
+                })
                 res.json({ success: true, message: "User logged in successfully", user })
             } else {
                 return res.json({ success: false, message: "Something went wrong!" })
@@ -91,7 +101,7 @@ export const updateUser = async (req, res) => {
         if (!alreadyUser) {
             res.json({ success: false, message: "User with this email is not exists" })
         }
-        const user = await User.findOneAndUpdate({ email: alreadyUser.email }, { name, email, bio ,profilePic:req.file.path})
+        const user = await User.findOneAndUpdate({ email: alreadyUser.email }, { name, email, bio, profilePic: req.file.path })
         res.json({ success: true, message: "User updated successfully" })
     } catch (error) {
         res.json({ success: false, message: error.message })
