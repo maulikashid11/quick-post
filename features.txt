@@ -1,0 +1,30 @@
+Core Features of QuickPost Project:
+
+1. List posts/projects with pagination
+   - Breaks large lists into manageable pages for performance.
+
+2. View single post
+   - Dynamic route using post ID to show full content.
+
+3. Create/edit/delete post
+   - Full CRUD operations for backend learning.
+
+4. Pagination (Frontend & Backend)
+   - Fetch only limited data per page to improve loading speed.
+
+5. Lazy load images and components
+   - Defers loading of non-critical resources for faster initial load.
+
+6. React Query for data fetching
+   - Handles caching, background updates, and API state management.
+
+7. Mobile Responsive Design
+   - Ensures good user experience across devices.
+
+8. Form validation (optional)
+   - Prevents invalid input and improves UX.
+
+This combination balances development time with strong focus on performance and user experience.
+
+
+firebase - image uploads
