@@ -27,7 +27,7 @@ const UpdateBlog = () => {
         formData.append('_id', id)
         formData.append('file', details.file)
 
-        const data = await (await fetch('http://localhost:3000/blog/updateblog', {
+        const data = await (await fetch('https://quick-post-backend.onrender.com/blog/updateblog', {
             method: "PUT",
             body: formData,
             credentials: "include"

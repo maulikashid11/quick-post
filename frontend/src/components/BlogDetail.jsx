@@ -10,12 +10,12 @@ const BlogDetail = () => {
     const { user } = useContext(AppContext)
     const navigate = useNavigate()
     useEffect(() => {
-        fetch('http://localhost:3000/blog/getblog', {
+        fetch('https://quick-post-backend.onrender.com/blog/getblog', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ _id:id }),
+            body: JSON.stringify({ _id: id }),
             credentials: 'include'
         }).then(res => res.json()).then(data => {
             if (data.success) {
@@ -24,7 +24,7 @@ const BlogDetail = () => {
         })
     }, [])
     const handleDelete = () => {
-        fetch('http://localhost:3000/blog/deleteblog', {
+        fetch('https://quick-post-backend.onrender.com/blog/deleteblog', {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"

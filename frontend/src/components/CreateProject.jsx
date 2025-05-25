@@ -23,7 +23,7 @@ const CreateProject = () => {
         formData.append('name', details.name)
         formData.append('file', details.file)
 
-        const data = await (await fetch('http://localhost:3000/project/createproject', {
+        const data = await (await fetch('https://quick-post-backend.onrender.com/project/createproject', {
             method: "POST",
             body: formData,
             credentials: "include"

@@ -6,7 +6,7 @@ const ProtectedRoute = ({ children }) => {
     const { user, setUser } = useContext(AppContext)
     const navigate = useNavigate()
     useEffect(() => {
-        fetch('http://localhost:3000/user/getuser', {
+        fetch('https://quick-post-backend.onrender.com/user/getuser', {
             headers: {
                 "Content-Type": "application/json"
             },

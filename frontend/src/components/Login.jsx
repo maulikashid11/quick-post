@@ -21,7 +21,7 @@ const Login = () => {
         const { name, email, password } = details
         try {
             if (state) {
-                const res = await fetch('http://localhost:3000/user/login', {
+                const res = await fetch('https://quick-post-backend.onrender.com/user/login', {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ const Login = () => {
                 const data = await res.json()
                 if (data.success) {
                     toast.success(data.message)
-                    const { user } = await (await fetch('http://localhost:3000/user/getuser', {
+                    const { user } = await (await fetch('https://quick-post-backend.onrender.com/user/getuser', {
                         headers: {
                             "Content-Type": "application/json"
                         },
@@ -44,7 +44,7 @@ const Login = () => {
                     toast.error(data.message)
                 }
             } else {
-                const res = await fetch('http://localhost:3000/user/register', {
+                const res = await fetch('https://quick-post-backend.onrender.com/user/register', {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ const Login = () => {
                 const data = await res.json()
                 if (data.success) {
                     toast.success(data.message)
-                    const { user } = await (await fetch('http://localhost:3000/user/getuser', {
+                    const { user } = await (await fetch('https://quick-post-backend.onrender.com/user/getuser', {
                         headers: {
                             "Content-Type": "application/json"
                         },

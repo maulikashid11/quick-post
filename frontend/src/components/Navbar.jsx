@@ -9,7 +9,7 @@ const Navbar = () => {
 
     const navigate = useNavigate()
     useEffect(() => {
-        fetch('http://localhost:3000/user/getuser', {
+        fetch('https://quick-post-backend.onrender.com/user/getuser', {
             headers: {
                 "Content-Type": "application/json"
             },
@@ -23,7 +23,7 @@ const Navbar = () => {
         })
     }, [])
     const logout = async () => {
-        const data = await (await fetch("http://localhost:3000/user/logout", {
+        const data = await (await fetch("https://quick-post-backend.onrender.com/user/logout", {
             headers: {
                 'Content-Type': 'application/json'
             },

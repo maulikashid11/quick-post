@@ -10,7 +10,7 @@ const Profile = () => {
     const [projects, setProjects] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3000/project/getallprojects', {
+        fetch('https://quick-post-backend.onrender.com/project/getallprojects', {
             headers: {
                 "Content-Type": "application/json"
             },
@@ -33,15 +33,15 @@ const Profile = () => {
             {
                 user?.bio &&
                 <div>
-                <p className='font-bold text-xl mb-1'>Bio:</p>
-                <p className='font-bold border p-2 rounded text-slate-500'>{user?.bio}</p>
-            </div>}
+                    <p className='font-bold text-xl mb-1'>Bio:</p>
+                    <p className='font-bold border p-2 rounded text-slate-500'>{user?.bio}</p>
+                </div>}
             <div className='py-2'>
                 <p className='font-bold text-xl mb-1'>Your Posts:</p>
                 <div className='p-5 flex gap-5 flex-wrap'>
                     {
                         projects?.length > 0 ?
-                            projects.filter((project)=>project.createdBy._id === user._id).map((project) => {
+                            projects.filter((project) => project.createdBy._id === user._id).map((project) => {
                                 return <Project key={project._id} project={project} />
                             }) : <div>No projects found</div>
                     }

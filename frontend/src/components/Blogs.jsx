@@ -7,7 +7,7 @@ const Blogs = () => {
   const [blogs, setBlogs] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:3000/blog/getallblogs', {
+    fetch('https://quick-post-backend.onrender.com/blog/getallblogs', {
       headers: {
         "Content-Type": "application/json"
       },

@@ -6,7 +6,7 @@ const Projects = () => {
     const [projects, setProjects] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3000/project/getallprojects', {
+        fetch('https://quick-post-backend.onrender.com/project/getallprojects', {
             headers: {
                 "Content-Type": "application/json"
             },

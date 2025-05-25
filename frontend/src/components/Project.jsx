@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../contexts/AppContext'
-import { Delete, Edit} from 'lucide-react';
+import { Delete, Edit } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 
 const Project = ({ project }) => {
-  const { user } = useContext(AppContext) 
+  const { user } = useContext(AppContext)
   const handleDelete = () => {
-    fetch('http://localhost:3000/project/deleteproject', {
+    fetch('https://quick-post-backend.onrender.com/project/deleteproject', {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"

@@ -25,7 +25,7 @@ const CreateBlog = () => {
         formData.append('description', details.description)
         formData.append('file', details.file)
 
-        const data = await (await fetch('http://localhost:3000/blog/createblog', {
+        const data = await (await fetch('https://quick-post-backend.onrender.com/blog/createblog', {
             method: "POST",
             body: formData,
             credentials: "include"
